@@ -591,13 +591,13 @@ public class AirMapView extends MapView implements GoogleMap.InfoWindowAdapter,
     // Timer Implementation
 
     public void startMonitoringRegion() {
-        if (isMonitoringRegion) return;
+        if (this.map == null || isMonitoringRegion) return;
         timerHandler.postDelayed(timerRunnable, 100);
         isMonitoringRegion = true;
     }
 
     public void stopMonitoringRegion() {
-        if (!isMonitoringRegion) return;
+        if (this.map == null || !isMonitoringRegion) return;
         timerHandler.removeCallbacks(timerRunnable);
         isMonitoringRegion = false;
     }
